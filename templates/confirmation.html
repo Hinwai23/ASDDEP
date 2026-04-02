@@ -3,34 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ride Booking Home</title>
+    <title>Ride Confirmed</title>
     <style>
+        :root {
+            color-scheme: light;
+            --bg-start: #ecfdf5;
+            --bg-end: #f7fffb;
+            --panel: rgba(255, 255, 255, 0.92);
+            --panel-border: rgba(16, 185, 129, 0.16);
+            --text: #173127;
+            --muted: #557265;
+            --accent: #10b981;
+            --accent-dark: #059669;
+            --shadow: 0 24px 56px rgba(16, 185, 129, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
+            min-height: 100vh;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(16, 185, 129, 0.18), transparent 32%),
+                radial-gradient(circle at bottom right, rgba(52, 211, 153, 0.16), transparent 26%),
+                linear-gradient(135deg, var(--bg-start), var(--bg-end));
         }
+
         .container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: min(100%, 680px);
+            padding: 44px;
+            text-align: center;
+            border: 1px solid var(--panel-border);
+            border-radius: 28px;
+            background: var(--panel);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
         }
+
+        .icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--accent), #34d399);
+            color: #ffffff;
+            font-size: 34px;
+            font-weight: 700;
+            box-shadow: 0 16px 32px rgba(16, 185, 129, 0.24);
+        }
+
         h1 {
-            color: #333;
+            margin: 0 0 14px;
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            line-height: 1.1;
         }
+
         p {
-            color: #666;
+            max-width: 500px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--muted);
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-dark);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 16px;
+            }
+
+            .container {
+                padding: 32px 24px;
+                border-radius: 22px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <main class="container">
+        <div class="icon">✓</div>
         <h1>Ride Confirmed</h1>
         <p>Your ride has been successfully booked. Thank you for choosing our service!</p>
-    </div>
+        <span class="status">Booking completed successfully</span>
+    </main>
 </body>
 </html>
